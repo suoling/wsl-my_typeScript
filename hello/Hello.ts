@@ -1,4 +1,3 @@
-export class Hello {
+export class test {
 
 }
- 
