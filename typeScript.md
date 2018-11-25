@@ -2,9 +2,8 @@
 
 ### TypeScript介绍
 
-TypeScript 扩展了JavaScript语法，大部分已经存在的JavaScript程序，可以不加任何改动，在TypeScript环境下运行。TypeScript只是向JavaScript添加了一些新的遵循ES6规范的语法，以及基于类的面向对象编程的这种特性
-
-其次，2016年9月底发布的Angular2框架，这个框架本身是由TypeScript编写的。Angular框架，大家都知道，它是由谷歌公司开发的，非常流行的框架。也就是说，现在TS这门语言是由微软和谷歌这两大公司在背后支持。因此我们有理由相信，在未来一段时间内，TS有可能成为前端开发语言中的主流
+- TypeScript 扩展了JavaScript语法，大部分已经存在的JavaScript程序，可以不加任何改动，在TypeScript环境下运行。- TypeScript只是向JavaScript添加了一些新的遵循ES6规范的语法，以及基于类的面向对象编程的这种特性
+- 其次，2016年9月底发布的Angular2框架，这个框架本身是由TypeScript编写的。Angular框架，大家都知道，它是由谷歌公司开发的，非常流行的框架。也就是说，现在TS这门语言是由微软和谷歌这两大公司在背后支持。因此我们有理由相信，在未来一段时间内，TS有可能成为前端开发语言中的主流
 - 微软开发的一门编程语言
 - JavaScript的超集（扩展了js的语法，以及基于类的面向对象编程的特性）
 - 遵循最新的ES6规范
