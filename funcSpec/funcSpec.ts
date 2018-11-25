@@ -80,16 +80,18 @@ console.log(food)
 var arr = [1, 2, 3, 4]
 var [, , num1, num2] = arr
 var [num3, num4, ...other] = arr
-function getNum ([num3, num4, ...other]) {
-    console.log(num3)
-    console.log(num4)
-    console.log(other)
-}
+
 console.log(num1)  
 console.log(num2)
 console.log(num3)
 console.log(num4)
 console.log(other)
+
+function getNum ([num3, num4, ...other]) {
+    console.log(num3)
+    console.log(num4)
+    console.log(other)
+}
 
 // getNum(arr)  //此处我在本地测试时报错，但是在ts官方上运行时不报错
 // 总结：当你需要从一个对象的属性或者是数组的元素里面，用它们的值去初始化一个变量的时候，析构表达式可以让你写更少的代码。

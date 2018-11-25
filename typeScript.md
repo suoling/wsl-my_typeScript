@@ -11,7 +11,7 @@ TypeScript 扩展了JavaScript语法，大部分已经存在的JavaScript程序�
 
 ### TypeScrip优势
 
-- 支持ES6规范：2015年发布的，它指出了未来一段时间内，客户端脚本语音的发展方向
+- 支持ES6规范：2015年发布的，它指出了未来一段时间内，客户端脚本语言的发展方向
 - 强大的IDE支持：体现在三个特性上：
     - 1.类型检查，在TS中允许你为变量指定类型
     - 2.语法提示<提高开发效率>
@@ -30,7 +30,7 @@ TypeScript 扩展了JavaScript语法，大部分已经存在的JavaScript程序�
 ```shell
 tsc 文件名.ts
 ```
-- 直接运行TS代码，需要安装ts-nodeyi,然后运行TS文件即可，相关命令如下：
+- 直接运行TS代码，需要安装ts-node依赖,然后运行TS文件即可，相关命令如下：
 ```shell
 npm install -g ts-node
 ts-node 文件名.ts
@@ -49,13 +49,13 @@ Version 3.1.3
 
 #### 使用：
 
-在hello文件目录下新建Hello.ts文件
+在hello文件目录下新建hello.ts文件
 ```js
 export class Hello {
 
 }
 ```
-运行`tsc Hello.ts`命令，可以看到在hello文件夹下生成了一个Hello.js文件，即编译后最终在浏览器中执行的文件
+运行`tsc hello.ts`命令，可以看到在hello文件夹下生成了一个hello.js文件，即编译后最终在浏览器中执行的文件
 ```js
 "use strict";
 exports.__esModule = true;
@@ -66,7 +66,6 @@ var Hello = /** @class */ (function () {
 }());
 exports.Hello = Hello;
 ```
-由于TS有强大的IDE支持，因此在IDE编译器下可以不用敲写命令，自动把ts文件编译成js文件；
 
 ### 字符串新特性
 
@@ -133,13 +132,13 @@ test `hello my name is ${myname},i'm ${getAge()}`
 
 #### 参数类型
 
-在参数名称后面使用冒号来指定参数类型;可以避免错误类型复制，减少开发中的错误，在ts编译器中会提示错误！
+在参数名称后面使用冒号来指定参数类型;可以避免错误类型赋值，减少开发中的错误，在ts编译器中会提示错误！
 ```js
 var myname: string = "yue fei yu";
-var alias: any = "lulu";  // 可以为变量复任何类型值
+var alias: any = "lulu";  // 可以为变量赋任何类型值
 var age: number = 13;
 var man: boolean = true;
-function tes(name:string): void {}  // 改方法不需要返回值
+function test(name:string): void {}  // 该方法不需要返回值
  //自定义类型
 class Person{
     name: string;
@@ -199,7 +198,6 @@ fun1(7, 8, 9, 10, 11, 12);
 #### 可以把任意长度的数组转换成一个固定数量参数的方法的调用
 
 ```js
-可以把任意长度的数组转换成一个固定数量参数的方法的调用
 // 因为ts是es6语法的扩展，但是下边的这个例子，es6语法支持，当前版本的ts不支持
 function fun1(a, b, c){
     console.log(a);
@@ -214,7 +212,7 @@ fun1(...args2);
 
 #### generator函数
 
-控制函数的执行过程，手工暂停和恢复代码执行
+- 控制函数的执行过程，手工暂停和恢复代码执行
 ```js
 // 下边的这个例子，es6语法支持，当前版本的ts不支持
 function* doSomething () {
@@ -245,9 +243,10 @@ while (price > limitPrice) {
 // 当while循环条件不满足时，就暂停跳出；
 console.log(`buying at ${price}`)
 ```
+
 #### destructuring析构表达式
 
-通过表达式将对象或数组拆解成任意数量的变量
+- 通过表达式将对象或数组拆解成任意数量的变量
 ```js
 function getStock(){
     return{
@@ -266,35 +265,40 @@ function getStock(){
 
 // 上面三行是es5写法，将股票的信息存到本地变量stock中；
 
-var {code: codex, price: {price2}} = getStock();//对象中的属性被转换成两个本地的变量codex,price;
+var {code: codex, price: {price2}} = getStock();
+    //对象中的属性被转换成两个本地的变量codex,price;
+    // 相当于 var codex = getStock().code
+    // 还有 var price2 = getStock().price.price2
 console.log(codex); // LU
-console.log(price); //200
+console.log(price2); //200
 ```
 
 ```js
 var array1 = [1,2,3,4];
 var [, , number1, mumber2] = array1;
 var [number3, mumber4, ...others] = array1;
-var doSomething([number3, mumber4, ...others]){
-    console.log(number3);
-    console.log(number4);
-    console.log(others);
-}
+
 console.log(number1); //3
 console.log(number2); //4
 console.log(number3); //1
 console.log(number4); //2
 console.log(others);  //[3,4]
 
+var doSomething([number3, mumber4, ...others]){
+    console.log(number3);
+    console.log(number4);
+    console.log(others);
+}
+
 doSomething(array1);  //1 2  [3,4]  此处我在本地测试时报错，但是在ts官方上运行时不报错
 ```
-总结：当你需要从一个对象的属性或者是数组的元素里面，用它们的值去初始化一个变量的时候，析构表达式可以让你写更少的代码。
+- 总结：当你需要从一个对象的属性或者是数组的元素里面，用它们的值去初始化一个变量的时候，析构表达式可以让你写更少的代码。
 
 ### 表达式和循环
 
 #### 箭头表达式
 
-用来声明匿名函数，消除传统匿名函数的this指针问题
+- 用来声明匿名函数，消除传统匿名函数的this指针问题
 ```js
 var sum = (arg1, arg2) => {
     return arg1 + arg2;
@@ -303,7 +307,7 @@ var sum = (arg1, arg2) => {
 
 ```js
 var myArray = [1,2,3,4,5];
-console.log(myArray.filter(value =>value%2 ==0 ));//[2,4]
+console.log(myArray.filter(value =>value%2 === 0 ));  //[2,4]
 ```
 
 ```js
@@ -361,11 +365,8 @@ for(var n of "four number"){
 
 #### TypeScript类（Class）
 
-类是TS的核心，使用TS开发时，大部分代码都是写中类里面的。
-
-这里会介绍类的定义、构造函数、以及类的继承
-
-定义：
+- 类是TS的核心，使用TS开发时，大部分代码都是写中类里面的。
+- 这里会介绍类的定义、构造函数、以及类的继承
 ```js
 //类的声明
 class Person{
@@ -409,16 +410,14 @@ var p2 = new Person("superman");
 p2.eat();
 ```
 `类的访问控制符：`
-private:只能中类内部访问
-public:类的外部和内部都可以访问
-protected:类内部和子类可以访问
+- private:只能中类内部访问
+- public:类的外部和内部都可以访问
+- protected:类内部和子类可以访问
 
 #### TypeScript泛型（generic）
 
-参数化的类型，一般用来限制集合的内容
-
+- 参数化的类型，一般用来限制集合的内容
 继续上面的例子
-
 声明一个数组
 ```js
 var workers: Array<Person> = []; // 指定数组只能放Person类型的元素
@@ -429,7 +428,7 @@ workers[1] = new Employee("lisi", "2");
 
 #### TypeScript接口（Interface）
 
-用来建立某种代码约定，使得其它开发者在调用某个方法或创建新的类时必须遵循接口所定义的代码约定。
+- 用来建立某种代码约定，使得其它开发者在调用某个方法或创建新的类时必须遵循接口所定义的代码约定。
 - 接口声明属性
 
 ```js
@@ -477,9 +476,10 @@ class Tiger implements Animal{
 ```
 
 #### TypeScript模块（Module）
-模块可以帮助开发者将代码分割为可重用的单元。开发者可以自己决定将模块中的哪些资源（类、方法、变量）暴露出去供外部使用，哪些资源只在模块内使用。
-在TS中一个文件就是一个模块，模块的内部有两个关键字（export、import）支撑模块的特性。
-这两个关键字来控制模块 对外暴露什么、需要别的模块对你提供什么
+
+- 模块可以帮助开发者将代码分割为可重用的单元。开发者可以自己决定将模块中的哪些资源（类、方法、变量）暴露出去供外部使用，哪些资源只在模块内使用。
+- 在TS中一个文件就是一个模块，模块的内部有两个关键字（export、import）支撑模块的特性。
+- 这两个关键字来控制模块 对外暴露什么、需要别的模块对你提供什么
 
 export:对外暴露一些资源
 ```js
@@ -518,7 +518,8 @@ export function fun3{
 ```
 
 #### TypeScript注解（annotation）
-注解为程序的元素（类、方法、变量）加上更直观的说明，这些说明信息与程序的业务逻辑无关，而上供指定的工具框架使用的。
+
+- 注解为程序的元素（类、方法、变量）加上更直观的说明，这些说明信息与程序的业务逻辑无关，而上供指定的工具框架使用的。
 ```js
 //app.component.ts
 import {Component} from '@angular/core';
@@ -541,9 +542,8 @@ export class AppComponent{
 {{title}} //绑定在AppComponent 类的title 属性上
 </h1>`
 ```
-上面程序使用angular2 框架写的程序，在`app.component.ts`文件中声明类一个类`AppComponent`，在这个类上有一个注解`@Component`，这个注解本身是由angular2框架提供的，在这个注解中有一些属性，这个注解的这些属性会告诉angulr2 框架怎么去处理`AppComponent`这个ts类。即 在angular2 框架中，去实例化一个AppComponent这样一个类的时候，angular2框架会去加载`./app.component.html`这个页面，和`./component.css`展示中页面中；
-
-这就是注解，它用来告诉一个框架怎么处理程序中的元素（类、元素等）
+- 上面程序使用angular2 框架写的程序，在`app.component.ts`文件中声明类一个类`AppComponent`，在这个类上有一个注解`@Component`，这个注解本身是由angular2框架提供的，在这个注解中有一些属性，这个注解的这些属性会告诉angulr2 框架怎么去处理`AppComponent`这个ts类。即 在angular2 框架中，去实例化一个AppComponent这样一个类的时候，angular2框架会去加载`./app.component.html`这个页面，和`./component.css`展示中页面中；
+- 这就是注解，它用来告诉一个框架怎么处理程序中的元素（类、元素等）
 
 #### TypeScript类型定义文件（.d.ts）
 
