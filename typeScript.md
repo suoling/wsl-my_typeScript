@@ -2,7 +2,8 @@
 
 ### TypeScript介绍
 
-- TypeScript 扩展了JavaScript语法，大部分已经存在的JavaScript程序，可以不加任何改动，在TypeScript环境下运行。- TypeScript只是向JavaScript添加了一些新的遵循ES6规范的语法，以及基于类的面向对象编程的这种特性
+- TypeScript 扩展了JavaScript语法，大部分已经存在的JavaScript程序，可以不加任何改动，在TypeScript环境下运行。
+- TypeScript只是向JavaScript添加了一些新的遵循ES6规范的语法，以及基于类的面向对象编程的这种特性
 - 其次，2016年9月底发布的Angular2框架，这个框架本身是由TypeScript编写的。Angular框架，大家都知道，它是由谷歌公司开发的，非常流行的框架。也就是说，现在TS这门语言是由微软和谷歌这两大公司在背后支持。因此我们有理由相信，在未来一段时间内，TS有可能成为前端开发语言中的主流
 - 微软开发的一门编程语言
 - JavaScript的超集（扩展了js的语法，以及基于类的面向对象编程的特性）
@@ -223,7 +224,7 @@ function* doSomething () {
 var fun1 = doSomething()
 fun1.next() // generator函数调用时，要声明一个变量,并且执行一次next()方法，不然函数调用不会执行
             // 每执行一个next() 就停在一个yield中，相当于断点
-fun1.next() // 再次执行next(),就会从上次暂停的地方一直执行到下一个有yield的地方zuihou，
+fun1.next() // 再次执行next(),就会从上次暂停的地方一直执行到下一个有yield的地方，
             // 如果之后不存在yield，则会一直执行到函数最后
 
 function* getStockPrice (stock) {
@@ -518,7 +519,7 @@ export function fun3{
 
 #### TypeScript注解（annotation）
 
-- 注解为程序的元素（类、方法、变量）加上更直观的说明，这些说明信息与程序的业务逻辑无关，而上供指定的工具框架使用的。
+- 注解为程序的元素（类、方法、变量）加上更直观的说明，这些说明信息与程序的业务逻辑无关，而是供指定的工具框架使用的。
 ```js
 //app.component.ts
 import {Component} from '@angular/core';

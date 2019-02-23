@@ -35,7 +35,7 @@ fn(1, 2, 3, 4, 5, 6, 7, 8)
 // var fun1 = doSomething()
 // fun1.next() // generator函数调用时，要声明一个变量,并且执行一次next()方法，不然函数调用不会执行
 //             // 每执行一个next() 就停在一个yield中，相当于断点
-// fun1.next() // 再次执行next(),就会从上次暂停的地方一直执行到下一个有yield的地方zuihou，
+// fun1.next() // 再次执行next(),就会从上次暂停的地方一直执行到下一个有yield的地方，
 //             // 如果之后不存在yield，则会一直执行到函数最后
 
 // function* getStockPrice (stock) {
